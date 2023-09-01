@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ultimate Calculator</title>
-    <link
-      rel="stylesheet"
-      href="node_modules/@fortawesome/fontawesome-free/css/all.min.css"
-    />
-    <script src="node_modules/fastclick/lib/fastclick.js"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ultimate Calculator</title>
+  <link
+          rel="stylesheet"
+          href="node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+  />
 
-
-    <style>
+  <style>
       body {
         background-color: aliceblue;
         margin: 0;
@@ -160,62 +158,53 @@
 
       /* Styles only for coming soon cards */
       .card.coming-soon .coming-soon-banner {
-          white-space: initial;
-          font-size: 12px;
-          padding: 5px;
+        position: absolute;
+        top: 5px;
+        left: 0px;
+        max-width: 110%;
+        white-space: normal;
+        overflow: hidden;
       }
 
       @media (max-width: 768px) {
         .card.coming-soon .coming-soon-banner {
           white-space: initial;
-          font-size: 125px;
-          padding: 60px;
+          font-size: 12px;
+          padding: 5px;
         }
       }
     </style>
-    <!-- Link to the locally installed Bootstrap CSS file -->
-<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-
-<!-- Link to the locally installed jQuery -->
-<script src="node_modules/jquery/dist/jquery.min.js"></script>
-
-<!-- Link to the locally installed Popper.js -->
-<script src="node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
 
 
-    
-  </head>
-  <body>
-<!-- Replace the existing <nav> and <div> elements with Bootstrap classes -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
-  <a class="navbar-brand" href="#">Ultimate Calculator</a>
+  <script src="node_modules/fastclick/lib/fastclick.js"></script>
+
+  <!-- Link to the locally installed jQuery -->
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+
+  <!-- Link to the locally installed Popper.js -->
+  <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+
+  <!-- Link to the locally installed Bootstrap JS -->
+  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<nav>
+  <h1 class="title">Ultimate Calculator</h1>
 </nav>
 
-<div class="container mt-4">
-  <div class="row">
-    <div class="col-lg-7 mx-auto">
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text"><i class="fas fa-search"></i></span>
-        </div>
-        <input
-          type="text"
-          id="search-input"
-          class="form-control"
-          placeholder="Search..."
-        />
-      </div>
-    </div>
-  </div>
+<div class="search-container">
+  <i class="fas fa-search"></i>
+  <input type="text" id="search-input" placeholder="Search..." />
+</div>
+<div class="container"></div>
+<script>
+      window.addEventListener("load", function () {
+        FastClick.attach(document.body);
+      });
+    </script>
 
-    <div class="container"></div>
-    <script>
-  window.addEventListener('load', function() {
-    FastClick.attach(document.body);
-  });
-</script>
-
-    <script>
+<script>
       const cardData = [
         {
           icon: "fas fa-calculator",
@@ -494,23 +483,7 @@
 
       window.addEventListener("resize", resizeBanner);
 
-      // Add this code to your main page script
-document.addEventListener("scroll", () => {
-  const scrollPosition = window.scrollY;
-  document.cookie = `scrollPosition=${scrollPosition}`;
-});
-// Add this code to your main page script, right after the scroll listener
-window.addEventListener("load", () => {
-  const scrollCookie = document.cookie
-    .split(";")
-    .find((cookie) => cookie.includes("scrollPosition"));
-  
-  if (scrollCookie) {
-    const scrollPosition = parseInt(scrollCookie.split("=")[1]);
-    window.scrollTo(0, scrollPosition);
-  }
-});
 
     </script>
-  </body>
+</body>
 </html>
