@@ -63,6 +63,12 @@
       .hidden {
         display: none;
       }
+      #kmDiv {
+        display: block;
+      }
+      #milesDiv {
+        display: none;
+      }
       .fold {
         opacity: 0;
         transform: translateY(-20px);
@@ -198,7 +204,7 @@
         setTimeout(() => {
           createFuelDrop();
           randomDropDelay();
-        }, Math.random() * 3000); // Adjust the delay range as needed
+        }, Math.random() * 1000); // Adjust the delay range as needed
       }
 
       randomDropDelay();
@@ -212,8 +218,8 @@
       kmBtn.addEventListener("click", () => {
         milesDiv.classList.add("fold");
         setTimeout(() => {
-          milesDiv.classList.add("hidden");
-          kmDiv.classList.remove("hidden");
+          milesDiv.style.display = "none";
+          kmDiv.style.display = "block";
           kmDiv.classList.remove("fold");
         }, 300);
       });
@@ -221,8 +227,8 @@
       milesBtn.addEventListener("click", () => {
         kmDiv.classList.add("fold");
         setTimeout(() => {
-          kmDiv.classList.add("hidden");
-          milesDiv.classList.remove("hidden");
+          kmDiv.style.display = "none";
+          milesDiv.style.display = "block";
           milesDiv.classList.remove("fold");
         }, 300);
       });
@@ -279,6 +285,7 @@
           " hours <br><br>";
         const reset = (document.getElementById("retry").style.display =
           "block");
+        renderer.setSize(window.innerWidth, window.innerHeight * 1.5);
       }
 
       function showKmError(message) {
@@ -303,6 +310,7 @@
         const resultElement = document.getElementById("kmEfficiency");
         resultElement.innerHTML = "";
         const reset = (document.getElementById("retry").style.display = "none");
+        renderer.setSize(window.innerWidth, window.innerHeight);
       }
       // Rest of your code (calculateMilesEfficiency, displayMilesResult, showMilesError)
 
